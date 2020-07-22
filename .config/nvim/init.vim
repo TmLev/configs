@@ -15,15 +15,17 @@ set expandtab
 " Install `vim-plug` if not installed
 if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
     silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
-                 https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim 
+                 https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
 call plug#begin('~/.local/share/nvim/site/bundle')
 
+    " Interface
     Plug 'vim-airline/vim-airline'
     Plug 'ryanoasis/vim-devicons'
     Plug 'yuttie/comfortable-motion.vim'
+    Plug 'tyrannicaltoucan/vim-deep-space'
 
     " Git tools
     Plug 'tpope/vim-fugitive'
@@ -46,6 +48,12 @@ let g:airline#extensions#keymap#enabled = 0
 let g:airline_section_z = "\ue0a1:%l/%L Col:%c"
 let g:Powerline_symbols="unicode"
 let g:airline#extensions#xkblayout#enabled = 0
+
+" Theme settings
+set background=dark
+set termguicolors
+colorscheme deep-space
+let g:airline_theme='deep_space'
 
 " Whitespaces
 let g:better_whitespace_enabled=1
