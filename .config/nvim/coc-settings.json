@@ -1,0 +1,11 @@
+{
+    "clangd.semanticHighlighting": true,
+    "clangd.arguments": [
+        "--clang-tidy",
+        "--header-insertion=iwyu",
+        "--suggest-missing-includes"
+    ],
+    "clangd.fallbackFlags": [
+        "-std=c++17"
+    ]
+}
