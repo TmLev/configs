@@ -122,6 +122,13 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias vim="nvim"
 
+# Cool Rust utilities
+alias cat="echo \"Use 'bat'\""
+alias find="echo \"Use 'fd'\""
+alias grep="echo \"Use 'rg'\""
+alias htop="echo \"Use 'btm'\""
+alias ls="echo \"Use 'exa'\""
+
 # pyenv
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"

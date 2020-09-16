@@ -41,6 +41,13 @@ call plug#begin('~/.local/share/nvim/site/bundle')
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
     Plug 'jackguo380/vim-lsp-cxx-highlight'
 
+    " Markdown
+    Plug 'plasticboy/vim-markdown'
+
+    " LaTeX
+    Plug 'lervag/vimtex'
+    Plug 'sirver/ultisnips'
+
 call plug#end()
 
 let g:airline_powerline_fonts = 1
@@ -62,4 +69,19 @@ let g:strip_whitespace_on_save=1
 " Git Blame Line
 autocmd BufEnter * EnableBlameLine
 let g:blameLineVirtualTextPrefix = '// '
+
+" LaTeX
+let g:tex_flavor='latex'
+let g:vimtex_compiler_progname = 'nvr'
+let g:vimtex_quickfix_mode=0
+let g:vimtex_format_enabled=1
+let g:vimtex_view_method='skim'
+
+set conceallevel=1
+let g:tex_conceal='abdmg'
+highlight Conceal guifg=#9DA7BB guibg=#1C2029
+
+let g:UltiSnipsExpandTrigger = '<tab>'
+let g:UltiSnipsJumpForwardTrigger = '<tab>'
+let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
 
