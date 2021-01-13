@@ -1,0 +1,10 @@
+[cmd_duration]
+style = "white bold"
+
+[python]
+style = "blue bold"
+
+[cmake]
+symbol = "CMake "
+style = "fg:green bg:8"
+
