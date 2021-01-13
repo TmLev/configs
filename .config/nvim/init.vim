@@ -1,16 +1,24 @@
 filetype plugin indent on
 
+" Syntax highlighting
 syntax enable
 
+" Default encoding for all files
 set encoding=utf-8
 
+" Don't be compatible with `vim`
 set nocompatible
 
+" Show current line, while other are relative
 set number relativenumber
 
+" Tab settings
 set tabstop=4
 set shiftwidth=4
 set expandtab
+
+" Yank to clipboard
+set clipboard=unnamedplus
 
 " Install `vim-plug` if not installed
 if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
@@ -18,6 +26,10 @@ if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
                  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
+
+" Set path to Python
+let g:python_host_prog = '/usr/bin/python2.7'
+let g:python3_host_prog = '/Users/lev/.pyenv/shims/python'
 
 call plug#begin('~/.local/share/nvim/site/bundle')
 
@@ -27,19 +39,27 @@ call plug#begin('~/.local/share/nvim/site/bundle')
     Plug 'yuttie/comfortable-motion.vim'
     Plug 'tyrannicaltoucan/vim-deep-space'
 
+    " Hightlight yanked lines
+    Plug 'machakann/vim-highlightedyank'
+
     " Git tools
     Plug 'tpope/vim-fugitive'
     Plug 'tveskag/nvim-blame-line'
 
-    " NERD Tree
+    " Navigation
     Plug 'preservim/nerdtree'
+    Plug 'easymotion/vim-easymotion'
+    Plug 'airblade/vim-rooter'
 
     " Whitespaces
     Plug 'ntpeters/vim-better-whitespace'
 
-    " C++ autocomplete
+    " Programming languages completion
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+    " C++
     Plug 'jackguo380/vim-lsp-cxx-highlight'
+    Plug 'cdelledonne/vim-cmake'
 
     " Markdown
     Plug 'plasticboy/vim-markdown'
