@@ -3,13 +3,16 @@ filetype plugin indent on
 " Syntax highlighting
 syntax enable
 
+" Do not prompt to save on buffer switch
+set hidden
+
 " Default encoding for all files
 set encoding=utf-8
 
-" Don't be compatible with `vim`
+" Do not be compatible with `vi`
 set nocompatible
 
-" Show current line, while other are relative
+" Show current line, while others are relative
 set number relativenumber
 
 " Tab settings
@@ -19,13 +22,6 @@ set expandtab
 
 " Yank to clipboard
 set clipboard=unnamedplus
-
-" Install `vim-plug` if not installed
-if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
-    silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
-                 https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-endif
 
 " Set path to Python
 let g:python_host_prog = '/usr/bin/python2.7'
@@ -44,7 +40,6 @@ call plug#begin('~/.local/share/nvim/site/bundle')
 
     " Git tools
     Plug 'tpope/vim-fugitive'
-    Plug 'tveskag/nvim-blame-line'
 
     " Navigation
     Plug 'preservim/nerdtree'
@@ -65,11 +60,12 @@ call plug#begin('~/.local/share/nvim/site/bundle')
     Plug 'plasticboy/vim-markdown'
 
     " LaTeX
-    Plug 'lervag/vimtex'
-    Plug 'sirver/ultisnips'
+    " Plug 'lervag/vimtex'
+    " Plug 'sirver/ultisnips'
 
 call plug#end()
 
+" Airline
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#keymap#enabled = 0
 let g:airline_section_z = "\ue0a1:%l/%L Col:%c"
@@ -86,10 +82,6 @@ let g:airline_theme='deep_space'
 let g:better_whitespace_enabled=1
 let g:strip_whitespace_on_save=1
 
-" Git Blame Line
-autocmd BufEnter * EnableBlameLine
-let g:blameLineVirtualTextPrefix = '// '
-
 " LaTeX
 let g:tex_flavor='latex'
 let g:vimtex_compiler_progname = 'nvr'
@@ -101,7 +93,17 @@ set conceallevel=1
 let g:tex_conceal='abdmg'
 highlight Conceal guifg=#9DA7BB guibg=#1C2029
 
+" Snippets
 let g:UltiSnipsExpandTrigger = '<tab>'
 let g:UltiSnipsJumpForwardTrigger = '<tab>'
 let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
+
+" Language Server
+" Formatting
+command! -nargs=0 Format :call CocAction('format')
+" Go to code navigation
+nmap <silent> gd <Plug>(coc-definition)
+" Formatting selected code.
+xmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)
 

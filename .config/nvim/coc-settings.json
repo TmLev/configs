@@ -1,14 +1,28 @@
 {
-    "clangd.semanticHighlighting": true,
-    "clangd.arguments": [
-        "--clang-tidy",
-        "--header-insertion=iwyu",
-        "--suggest-missing-includes"
-    ],
-    "clangd.fallbackFlags": [
-        "-std=c++17",
-        "-Wall",
-        "-Wextra",
-        "-Wpedantic"
-    ]
+  "clangd.semanticHighlighting": true,
+  "clangd.arguments": [
+    "--clang-tidy",
+    "--header-insertion=iwyu",
+    "--suggest-missing-includes"
+  ],
+  "clangd.fallbackFlags": [
+    "-std=c++17",
+    "-Wall",
+    "-Wextra",
+    "-Wpedantic"
+  ],
+  "languageserver": {
+    "haskell": {
+      "command": "haskell-language-server-wrapper",
+      "args": ["--lsp"],
+      "rootPatterns": ["*.cabal", "stack.yaml", "cabal.project", "package.yaml", "hie.yaml"],
+      "filetypes": ["haskell", "lhaskell"],
+      "initializationOptions": {
+        "haskell": {
+          "formattingProvider": "stylish-haskell"
+        }
+      }
+    }
+  },
+  "coc.preferences.formatOnSaveFiletypes": ["haskell"]
 }
