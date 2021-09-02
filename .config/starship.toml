@@ -8,3 +8,6 @@ style = "blue bold"
 symbol = "CMake "
 style = "fg:green bg:8"
 
+[gcloud]
+disabled = true
+
