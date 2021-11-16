@@ -28,9 +28,8 @@ let g:python_host_prog = '/usr/bin/python2.7'
 let g:python3_host_prog = '/Users/lev/.pyenv/shims/python'
 
 call plug#begin('~/.local/share/nvim/site/bundle')
-
     " Interface
-    Plug 'vim-airline/vim-airline'
+    Plug 'itchyny/lightline.vim'
     Plug 'ryanoasis/vim-devicons'
     Plug 'yuttie/comfortable-motion.vim'
     Plug 'tyrannicaltoucan/vim-deep-space'
@@ -50,7 +49,7 @@ call plug#begin('~/.local/share/nvim/site/bundle')
     Plug 'ntpeters/vim-better-whitespace'
 
     " Programming languages completion
-    Plug 'neoclide/coc.nvim', {'branch': 'release'}
+    Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
 
     " C++
     Plug 'jackguo380/vim-lsp-cxx-highlight'
@@ -60,23 +59,20 @@ call plug#begin('~/.local/share/nvim/site/bundle')
     Plug 'plasticboy/vim-markdown'
 
     " LaTeX
-    " Plug 'lervag/vimtex'
-    " Plug 'sirver/ultisnips'
-
+    Plug 'lervag/vimtex'
+    Plug 'sirver/ultisnips'
 call plug#end()
 
-" Airline
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#keymap#enabled = 0
-let g:airline_section_z = "\ue0a1:%l/%L Col:%c"
-let g:Powerline_symbols="unicode"
-let g:airline#extensions#xkblayout#enabled = 0
+" lightline
+set noshowmode
+let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \ }
 
 " Theme settings
 set background=dark
 set termguicolors
 colorscheme deep-space
-let g:airline_theme='deep_space'
 
 " Whitespaces
 let g:better_whitespace_enabled=1
