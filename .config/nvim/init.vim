@@ -15,6 +15,9 @@ set nocompatible
 " Show current line, while others are relative
 set number relativenumber
 
+" Truecolor support
+set termguicolors
+
 " Tab settings
 set tabstop=4
 set shiftwidth=4
@@ -34,6 +37,9 @@ call plug#begin('~/.local/share/nvim/site/bundle')
     Plug 'yuttie/comfortable-motion.vim'
     Plug 'tyrannicaltoucan/vim-deep-space'
 
+    " tmux integration
+    Plug 'tmux-plugins/vim-tmux-focus-events'
+
     " Hightlight yanked lines
     Plug 'machakann/vim-highlightedyank'
 
@@ -49,10 +55,12 @@ call plug#begin('~/.local/share/nvim/site/bundle')
     Plug 'ntpeters/vim-better-whitespace'
 
     " Programming languages completion
-    Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
+    Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
     " C++
-    Plug 'jackguo380/vim-lsp-cxx-highlight'
+    Plug 'bfrg/vim-cpp-modern'
+
+    " CMake
     Plug 'cdelledonne/vim-cmake'
 
     " Markdown
@@ -62,6 +70,9 @@ call plug#begin('~/.local/share/nvim/site/bundle')
     Plug 'lervag/vimtex'
     Plug 'sirver/ultisnips'
 call plug#end()
+
+" ------------------------------------------------------------------------------
+" Interface
 
 " lightline
 set noshowmode
@@ -74,11 +85,24 @@ set background=dark
 set termguicolors
 colorscheme deep-space
 
+" ------------------------------------------------------------------------------
+" C++
+
+" Enable highlighting of C++11 attributes
+let g:cpp_attributes_highlight = 1
+
+" Highlight struct/class member variables (affects both C and C++ files)
+let g:cpp_member_highlight = 1
+
+" ------------------------------------------------------------------------------
 " Whitespaces
+
 let g:better_whitespace_enabled=1
 let g:strip_whitespace_on_save=1
 
+" ------------------------------------------------------------------------------
 " LaTeX
+
 let g:tex_flavor='latex'
 let g:vimtex_compiler_progname = 'nvr'
 let g:vimtex_quickfix_mode=0
